@@ -34,7 +34,7 @@ public class StartUp {
 	}
 	
 	
-	@Bean
+//	@Bean
     public EmbeddedServletContainerFactory servletContainer() {
         JettyEmbeddedServletContainerFactory factory = new JettyEmbeddedServletContainerFactory();
         factory.setPort(20020);
