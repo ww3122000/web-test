@@ -2,8 +2,6 @@ package com.ksc.s3;
 
 import java.lang.management.ManagementFactory;
 
-import javax.servlet.MultipartConfigElement;
-
 import lombok.extern.slf4j.Slf4j;
 
 import org.eclipse.jetty.jmx.MBeanContainer;
@@ -16,10 +14,8 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.jetty.JettyEmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.jetty.JettyServerCustomizer;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 
 @Slf4j
