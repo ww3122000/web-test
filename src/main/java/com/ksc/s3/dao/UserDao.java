@@ -4,7 +4,7 @@ import com.ksc.s3.domain.User;
 
 public interface UserDao {
     
-    void save(User user);
+    User save(User user);
     
     User findById(long id);
     

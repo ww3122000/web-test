@@ -1,10 +1,9 @@
 package com.ksc.s3.dao;
 
-import java.util.Date;
-
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Repository;
@@ -16,14 +15,15 @@ import com.ksc.s3.util.UserUtil;
 @Slf4j
 public class UserDaoImpl implements UserDao {
 
-    @Caching(evict = {
-            @CacheEvict(value = "user", key = "#user.id"),
-            @CacheEvict(value = "user", key = "#user.name"),
-            @CacheEvict(value = "user", key = "#user.email")
+    @Caching(put = {  
+            @CachePut(value = "user", key = "#result.id", condition = "#result != null"),  
+            @CachePut(value = "user", key = "#result.name", condition = "#result != null"),
+            @CachePut(value = "user", key = "#result.email", condition = "#result != null")
     })
     @Override
-    public void save(User user) {
+    public User save(User user) {
         log.info("dao save...");
+        return user;
     }
 
     @Cacheable(value = "user", key = "#id")
